@@ -8,7 +8,23 @@ app.use(express.json());
 
 app.get("/", (_req, res) => {
   res.json({
-    message: "DevConnect API is running 🚀",
+    success: true,
+    data: {
+      service: "DevConnect API",
+      status: "healthy",
+    },
+    message: "DevConnect API is running",
+  });
+});
+
+app.get("/api/health", (_req, res) => {
+  res.json({
+    success: true,
+    data: {
+      status: "healthy",
+      timestamp: new Date().toISOString(),
+    },
+    message: "API is healthy",
   });
 });
 
