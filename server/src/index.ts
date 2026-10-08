@@ -30,6 +30,14 @@ app.get("/api/health", (_req, res) => {
 
 const PORT = 5000;
 
+app.use((_req, res) => {
+  res.status(404).json({
+    success: false,
+    data: null,
+    message: "Route not found",
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
